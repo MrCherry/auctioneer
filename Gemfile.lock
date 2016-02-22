@@ -1,15 +1,34 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.6.1)
+    diff-lcs (1.2.5)
+    json (1.8.3)
     minitest (5.8.4)
+    predicated (0.2.6)
     rake (10.5.0)
+    ruby2ruby (2.3.0)
+      ruby_parser (~> 3.1)
+      sexp_processor (~> 4.0)
+    ruby_parser (3.8.1)
+      sexp_processor (~> 4.1)
+    sexp_processor (4.7.0)
+    wrong (0.7.1)
+      diff-lcs (~> 1.2.5)
+      predicated (~> 0.2.6)
+      ruby2ruby (>= 2.0.1)
+      ruby_parser (>= 3.0.1)
+      sexp_processor (>= 4.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
+  json
   minitest
   rake
+  wrong
 
 BUNDLED WITH
    1.11.2

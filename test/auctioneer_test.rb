@@ -1,4 +1,5 @@
-require_relative '../lib/auctioneer'
+require './test/test_helper'
+require './lib/auctioneer'
 
 class AuctioneerTest < Minitest::Test
   def test_run
