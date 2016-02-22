@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+# require 'optparse'
+require 'ap'
+require 'json'
+require './lib/auctioneer'
+
+creatives = JSON.load(File.read(ARGV[0]))
+result = Auctioneer.auction(creatives: creatives, number_of_winners: ARGV[1].to_i, country_name: ARGV[2])
+ap result
