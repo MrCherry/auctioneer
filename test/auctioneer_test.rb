@@ -32,7 +32,7 @@ class AuctioneerTest < Minitest::Test
       )
 
       winners.each do |winner|
-        assert { winner['country_name'] == country_name || winner['country_name'].nil? }
+        assert { [nil, country_name].include? winner['country_name'] }
       end
     end
   end
@@ -58,18 +58,34 @@ class AuctioneerTest < Minitest::Test
     assert { advertisers.count == advertisers.uniq.count }
   end
 
-  # Function should not give preference to any of equal by price creatives,
+  # Auctioneer.auction should not give preference to any of equal by price creatives,
   # but should return such creatives equiprobable.
-  def test_equiprobable_results
-    winners = []
+  def test_equiprobability
+    winners_1, winners_2 = nil, nil
 
     @unique_advertises_count.times do
-      winners += Auctioneer.auction(
+      winners_1 = Auctioneer.auction(
           creatives: @creatives,
-          number_of_winners: 1
+          number_of_winners: @unique_advertises_count
       )
+      winners_2 = Auctioneer.auction(
+          creatives: @creatives,
+          number_of_winners: @unique_advertises_count
+      )
+
+      break if winners_1 != winners_2
     end
 
-    deny { winners.uniq.count == 1 }
+    assert { winners_1 != winners_2 }
+  end
+
+  # Winners should have highest possible price, i.e. winners array should be sorted by price
+  def test_highest_price
+    winners = Auctioneer.auction(
+        creatives: @creatives,
+        number_of_winners: @unique_advertises_count
+    )
+
+    assert { winners.sort_by!{ |c| c['price'] } == winners }
   end
 end

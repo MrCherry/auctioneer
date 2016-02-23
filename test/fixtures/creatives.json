@@ -1,12 +1,12 @@
 [
-  {"id": 1,  "advertiser_id": 1, "price": 10,  "country_name": "USA"},
+  {"id": 1,  "advertiser_id": 1, "price": 100, "country_name": "USA"},
   {"id": 2,  "advertiser_id": 1, "price": 15,  "country_name": "USA"},
-  {"id": 3,  "advertiser_id": 2, "price": 10,  "country_name": "UK"},
+  {"id": 3,  "advertiser_id": 2, "price": 100, "country_name": "UK"},
   {"id": 4,  "advertiser_id": 3, "price": 20,  "country_name": null},
   {"id": 5,  "advertiser_id": 4, "price": 50,  "country_name": "Russia"},
-  {"id": 6,  "advertiser_id": 5, "price": 30,  "country_name": "USA"},
+  {"id": 6,  "advertiser_id": 5, "price": 20,  "country_name": "USA"},
   {"id": 7,  "advertiser_id": 6, "price": 15,  "country_name": "UK"},
-  {"id": 8,  "advertiser_id": 6, "price": 10,  "country_name": "UK"},
-  {"id": 9,  "advertiser_id": 7, "price": 10,  "country_name": "Russia"},
+  {"id": 8,  "advertiser_id": 6, "price": 20,  "country_name": "UK"},
+  {"id": 9,  "advertiser_id": 7, "price": 20,  "country_name": "Russia"},
   {"id": 10, "advertiser_id": 7, "price": 100, "country_name": "Russia"}
 ]

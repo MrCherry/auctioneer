@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-# require 'optparse'
 require 'ap'
 require 'json'
 require './lib/auctioneer'
