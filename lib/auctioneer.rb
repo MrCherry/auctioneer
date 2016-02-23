@@ -13,22 +13,22 @@ module Auctioneer
     winners = []
 
     # Select only specified country's contenders
-    contenders.select!{ |c| c['country_name'] == country_name || c['country_name'].nil? } if country_name
+    contenders.select!{ |c| [nil, country_name].include? c['country_name'] } if country_name
+
+    # Shuffle and sort contenders by price
+    contenders.shuffle!.sort_by!{ |c| c['price'] }
 
     # Process contenders array
     number_of_winners.times do
       break if contenders.empty?
 
-      # Generate a random contender's index based on contenders array size
-      index = rand(contenders.count)
-
       # Select a winner
-      winner = contenders.delete_at(index)
+      winner = contenders.pop
 
       # Reject contenders with the same advertiser_id
       contenders.reject!{ |c| c['advertiser_id'] == winner['advertiser_id'] }
 
-      # Add the winner to the winners array
+      # Add current winner to the winners array
       winners << winner
     end
 
