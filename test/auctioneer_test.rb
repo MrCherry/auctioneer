@@ -57,4 +57,19 @@ class AuctioneerTest < Minitest::Test
     advertisers = winners.map{ |c| c['advertiser_id'] }
     assert { advertisers.count == advertisers.uniq.count }
   end
+
+  # Function should not give preference to any of equal by price creatives,
+  # but should return such creatives equiprobable.
+  def test_equiprobable_results
+    winners = []
+
+    @unique_advertises_count.times do
+      winners += Auctioneer.auction(
+          creatives: @creatives,
+          number_of_winners: 1
+      )
+    end
+
+    deny { winners.uniq.count == 1 }
+  end
 end
