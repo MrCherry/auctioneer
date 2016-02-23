@@ -3,17 +3,20 @@
 
 ## The task
 
-As an input you have several entities, so called "creatives". Each of them has: 
+As an input you have several entities, so called "creatives". Each of them has:
+ 
 * price 
 * id of advertiser 
 * country name to serve (optional)
 
 Please implement a function auction, receiving:
+
 * array of creatives
 * number of winners
 * country name (optional)
 
 Function should return winner creatives, obeying the following rules:
+
 1. All winners must have unique advertiser id
 2. If third argument (country) is provided, then only creatives without country or creatives with same country can be among winners
 3. Function should not give preference to any of equal by price creatives, but should return such creatives equiprobable.
@@ -28,6 +31,18 @@ Consider a case with several input creatives equal by price and several function
 ```
 git clone git@github.com:MrCherry/auctioneer.git
 cd auctioneer
+```
+
+#### Install RVM
+```
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+curl -sSL https://get.rvm.io | bash -s stable
+```
+
+#### Install ruby interpreter and create a gemset
+```
+rvm install ruby-2.3.0
+rvm use 2.3.0@auctioneer --create
 ```
 
 #### Install bundler gem and project's dependencies
