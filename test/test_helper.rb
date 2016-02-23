@@ -14,8 +14,7 @@ class Minitest::Test
     MiniTest::Assertion
   end
 
-  # def aver(valence, explanation = nil, depth = 0)
-  #   increment_assertion_count
-  #   super(valence, explanation, depth + 1) # apparently this passes along the default block
-  # end
+  def increment_assertion_count
+    self.assertions += 1
+  end
 end
